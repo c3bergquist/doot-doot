@@ -1,0 +1,9 @@
+{
+    "name": "DootDoot",
+    "version_number": "0.1.0",
+    "website_url": "https://github.com/c3bergquist/doot-doot",
+    "description": "This is a description for a mod. 250 characters max",
+    "dependencies": [
+        "BepInEx-BepInExPack-5.4.2100"
+    ]
+}
