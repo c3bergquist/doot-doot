@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using LCSoundTool;
 using UnityEngine;
 
 namespace DootDoot.Patches
@@ -8,11 +9,17 @@ namespace DootDoot.Patches
     {
         [HarmonyPatch("ShootGun")]
         [HarmonyPrefix]
-        static void shootGunPatch(ShotgunItem __instance)
+        static void ShootGunPatch(ShotgunItem __instance)
         {
             if (__instance.isHeldByEnemy)
             {
-                __instance.gunShootSFX = DootDootModBase.DootDootSFX;
+                SoundTool.ReplaceAudioClip("ShotgunBlast", DootDootModBase.DootDootSFX);
+                SoundTool.ReplaceAudioClip("ShotgunBlast2", DootDootModBase.DootDootSFX);
+            }
+            else
+            {
+                SoundTool.RestoreAudioClip("ShotgunBlast");
+                SoundTool.RestoreAudioClip("ShotgunBlast2");
             }
         }
     }
